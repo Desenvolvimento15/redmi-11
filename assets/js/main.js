@@ -40,16 +40,43 @@ var blocks = document.getElementsByClassName("section");
 window.addEventListener('scroll', function(){checkScrollBlocks(blocks,0.5)}, false);
 window.addEventListener('resize', function(){checkScrollBlocks(blocks,0.5)}, false);
 
-$(document).ready(function(){
-$('.section-uitra .video-play-icon').on('click', function(){
-    window.open("https://www.youtube.com/watch?v=0djsNjzzDnE");
-});
+$('.responsive').slick-track({
+    dots: true,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
 
-$('.slider-section .slick-slider').slick({
-autoplay: true,
-infinite: true,
-slidesToShow: 1,
-slidesToScroll: 1,
-dots: true
-});
-});
+
+  $('.autoplay').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
